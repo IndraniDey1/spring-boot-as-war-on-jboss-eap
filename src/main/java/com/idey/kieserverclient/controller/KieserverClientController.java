@@ -27,24 +27,7 @@ public class KieserverClientController {
 		return "Hello !";
 	}
 
-	@PostMapping("/deriveSeason")
-	public List<DeriveSeason> evaluateSeason(@RequestBody DeriveSeason deriveSeason)
-			throws ParseException, JSONException {
-
-		List deriveSeasonList = null;
-		System.out.println(deriveSeason.getSeason());
-		if (deriveSeason.getSeason() != null && deriveSeason.getMonth() != null
-				&& deriveSeason.getHarvestYear() != null) {
-			deriveSeason.setIsValid(true);
-		}
-		try {
-			deriveSeasonList = service.evaluateSeason(deriveSeason);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return deriveSeasonList;
-	}
+	
 	
 	@PostMapping("/deriveSeasonList")
 	public List<DeriveSeason> evaluateSeasonList(@RequestBody List<DeriveSeason> deriveSeasonList)
